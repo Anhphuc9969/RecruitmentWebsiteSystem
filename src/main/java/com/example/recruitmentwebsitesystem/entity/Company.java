@@ -1,4 +1,4 @@
 package com.example.recruitmentwebsitesystem.entity;
 
-public class jobs {
+public class Company {
 }
