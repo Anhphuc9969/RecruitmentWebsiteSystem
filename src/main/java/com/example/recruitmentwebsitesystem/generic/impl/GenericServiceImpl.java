@@ -1,6 +1,6 @@
-package com.example.recruitmentwebsitesystem.generic.impl.impl.impl;
+package com.example.recruitmentwebsitesystem.generic.impl;
 
-import com.example.recruitmentwebsitesystem.generic.impl.impl.BaseService;
+import com.example.recruitmentwebsitesystem.generic.BaseService;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

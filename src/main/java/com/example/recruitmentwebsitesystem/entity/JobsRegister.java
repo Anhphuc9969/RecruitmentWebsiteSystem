@@ -1,4 +1,45 @@
 package com.example.recruitmentwebsitesystem.entity;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
+@Table(name = "jobs_register")
 public class JobsRegister {
+    @Id
+    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_REGISTER_SEQ")
+    @SequenceGenerator(name = "JOBS_REGISTER_SEQ", sequenceName = "JOBS_REGISTER_SEQ", allocationSize = 1, initialValue = 1)
+    int id;
+
+    @Column(name = "user_id", nullable = false)
+    int userId;
+
+    @Column(name = "date_register", nullable = false)
+    Date dateRegister;
+
+    @Column(name = "profile_status_id", nullable = false)
+    int profileStatusId;
+
+    @Column(name = "date_interview", nullable = false)
+    Date dateInterview;
+
+    @Column(name = "method_interview", nullable = false)
+    String methodInterview;
+
+    @Column(name = "cv_file", nullable = false)
+    String cvFile;
+
+    @Column(name = "is_delete", nullable = false)
+    boolean isDelete;
 }

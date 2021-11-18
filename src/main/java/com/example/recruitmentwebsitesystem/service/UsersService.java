@@ -1,8 +1,7 @@
 package com.example.recruitmentwebsitesystem.service;
 
-import com.example.recruitmentwebsitesystem.entity.AcademicLevel;
 import com.example.recruitmentwebsitesystem.entity.Users;
-import com.example.recruitmentwebsitesystem.generic.impl.impl.BaseService;
+import com.example.recruitmentwebsitesystem.generic.BaseService;
 
 public interface UsersService extends BaseService<Users, Integer> {
 }

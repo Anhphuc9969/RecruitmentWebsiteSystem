@@ -1,6 +1,6 @@
-package com.example.recruitmentwebsitesystem.generic.impl.impl.impl;
+package com.example.recruitmentwebsitesystem.generic.impl;
 
-import com.example.recruitmentwebsitesystem.generic.impl.impl.BaseService;
+import com.example.recruitmentwebsitesystem.generic.BaseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,4 +12,5 @@ public class GenericController <T , E> {
     public GenericController(BaseService<T, E> baseService) {
         this.baseService = baseService;
     }
+
 }

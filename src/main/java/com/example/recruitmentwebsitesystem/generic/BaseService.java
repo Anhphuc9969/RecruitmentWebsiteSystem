@@ -1,4 +1,4 @@
-package com.example.recruitmentwebsitesystem.generic.impl.impl;
+package com.example.recruitmentwebsitesystem.generic;
 
 import java.util.List;
 import org.springframework.data.domain.Page;
