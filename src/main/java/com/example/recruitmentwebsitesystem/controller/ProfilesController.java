@@ -1,16 +1,17 @@
 package com.example.recruitmentwebsitesystem.controller;
 
-import com.example.recruitmentwebsitesystem.entity.User;
+import com.example.recruitmentwebsitesystem.entity.Notifications;
+import com.example.recruitmentwebsitesystem.entity.Profiles;
 import com.example.recruitmentwebsitesystem.generic.BaseService;
 import com.example.recruitmentwebsitesystem.generic.impl.GenericController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
-public class UsersController extends GenericController<User, Integer> {
+@RequestMapping("/profiles")
+public class ProfilesController  extends GenericController<Profiles, Integer> {
 
-    public UsersController(BaseService<User, Integer> baseService) {
+    public ProfilesController(BaseService<Profiles, Integer> baseService) {
 
         super(baseService);
     }
