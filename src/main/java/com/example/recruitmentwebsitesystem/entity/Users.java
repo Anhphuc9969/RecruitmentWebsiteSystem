@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -15,12 +17,16 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "users")
-public class User {
+public class Users implements Serializable {
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
     @SequenceGenerator(name = "USERS_SEQ", sequenceName = "USERS_SEQ", allocationSize = 1, initialValue = 1)
     int id;
+
+    @OneToOne(targetEntity = Profiles.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "profiles_id", nullable = false)
+    Profiles profiles;
 
     @Column(name = "full_name", nullable = false)
     String fullName;
@@ -31,7 +37,7 @@ public class User {
     @Column(name = "user_name", nullable = false)
     String userName;
 
-    @Column(name = "pass_word", nullable = false)
+    @Column(name = "password", nullable = false)
     String passWord;
 
     @Column(name = "phone", nullable = false)
@@ -46,7 +52,7 @@ public class User {
     @Column(name = "birthday", nullable = false)
     Date birthday;
 
-    @Column(name = "avarta", nullable = false)
+    @Column(name = "avatar", nullable = false)
     String avatar;
 
     @Column(name = "role_id", nullable = false)

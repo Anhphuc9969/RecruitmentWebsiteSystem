@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
@@ -14,12 +16,16 @@ import javax.persistence.*;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "profiles")
-public class Profiles {
+public class Profiles implements Serializable {
     @Id
     @Column(nullable = false)
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROFILES_SEQ")
+    @SequenceGenerator(name = "PROFILES_SEQ", sequenceName = "PROFILES_SEQ", allocationSize = 1, initialValue = 1)
+    int id;
+
+    @OneToOne(targetEntity = Users.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    User user;
+    Users users;
 
     @Column(name = "skill", nullable = false)
     String skill;
