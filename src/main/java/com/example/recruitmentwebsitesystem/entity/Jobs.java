@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -15,9 +17,9 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "jobs")
-public class Jobs {
+public class Jobs implements Serializable {
     @Id
-    @Column(nullable = false)
+    @Column(name = "job_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_SEQ")
     @SequenceGenerator(name = "JOBS_SEQ", sequenceName = "JOBS_SEQ", allocationSize = 1, initialValue = 1)
     int id;

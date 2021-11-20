@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -15,15 +17,18 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "jobs_register")
-public class JobsRegister {
-    @Id
-    @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOBS_REGISTER_SEQ")
-    @SequenceGenerator(name = "JOBS_REGISTER_SEQ", sequenceName = "JOBS_REGISTER_SEQ", allocationSize = 1, initialValue = 1)
-    int id;
-
-    @Column(name = "user_id", nullable = false)
-    int userId;
+public class JobsRegister implements Serializable {
+//    @Id
+//    @ManyToOne(targetEntity = Jobs.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "job_id", nullable = false)
+//    Jobs jobs;
+//
+//    @Id
+//    @ManyToOne(targetEntity = Users.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "job_id", nullable = false)
+//    Users users;
+    @EmbeddedId
+    CompositeJobsReg compositeJobsReg;
 
     @Column(name = "date_register", nullable = false)
     Date dateRegister;
